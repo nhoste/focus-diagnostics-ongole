@@ -1103,3 +1103,38 @@ Extra
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.reviews{
+    margin-top:8%;
+    margin-bottom:3%;
+}
+
+
+@media(max-width:550px){
+    .homebtn{
+        margin-left:-0px !important;
+        margin-top:10px
+    }
+    .reviews{
+        margin-top:100px; 
+    }
+    .bigmobilenumber{
+        font-size:20px
+    }
+}
+
