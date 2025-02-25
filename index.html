@@ -65,10 +65,153 @@
   <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/line-awesome@1.3.0/dist/line-awesome/css/line-awesome.min.css">
 
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <!-- inject css end -->
 
+
+  <style>
+    .whatsapp-container {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      z-index: 9999;
+    }
+
+    .whatsapp-container a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .main-whatsapp-icon {
+      width: 55px;
+      height: 55px;
+      background-color: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 40px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      z-index: 9;
+      animation: ripple 1.5s linear infinite;
+      transition: all 0.7s ease;
+      box-shadow:
+        0 0 0 0 rgba(37, 211, 102, 0.3),
+        0 0 0 1px rgba(37, 211, 102, 0.3),
+        0 0 0 3px rgba(37, 211, 102, 0.3),
+        0 0 0 5px rgba(37, 211, 102, 0.3);
+
+    }
+
+    @keyframes ripple {
+      0% {
+        box-shadow:
+          0 0 0 0 rgba(37, 211, 102, 0.3),
+          0 0 0 1px rgba(37, 211, 102, 0.3),
+          0 0 0 3px rgba(37, 211, 102, 0.3),
+          0 0 0 5px rgba(37, 211, 102, 0.3);
+      }
+
+      100% {
+        box-shadow:
+          0 0 0 0 rgba(37, 211, 102, 0.3),
+          0 0 0 4px rgba(37, 211, 102, 0.3),
+          0 0 0 20px rgba(37, 211, 102, 0),
+          0 0 0 30px rgba(37, 211, 102, 0);
+      }
+    }
+
+    .whatsapp-icons {
+      position: absolute;
+      bottom: -20%;
+      left: -40%;
+      width: 135px;
+      height: 135px;
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .whatsapp-icons.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .whatsapp-icon {
+      position: absolute;
+      width: 38px;
+      height: 38px;
+      background-color: navy;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 21px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      margin: 80px 0 0 30px;
+    }
+
+    .whatsapp-icon:hover i {
+      transform: scale(1.1);
+      transition-duration: 0.3s;
+    }
+
+    .whatsapp-icon:nth-child(1) {
+      --x: 9.5;
+      --y: -85;
+    }
+
+    .whatsapp-icon:nth-child(2) {
+      --x: 51.5;
+      --y: -68;
+    }
+
+    .whatsapp-icon:nth-child(3) {
+      --x: 80;
+      --y: -33;
+    }
+
+    .whatsapp-icon:nth-child(4) {
+      --x: 95;
+      --y: 10;
+    }
+
+    .whatsapp-icons.active .whatsapp-icon {
+      margin: 75px 0 0 20px;
+    }
+
+    .whatsapp-icons.active .whatsapp-icon:nth-child(1) {
+      opacity: 1;
+      transform: translate(calc(var(--x) * 1px), calc(var(--y) * 1px));
+      transition-delay: 0s;
+    }
+
+    .whatsapp-icons.active .whatsapp-icon:nth-child(2) {
+      opacity: 1;
+      transform: translate(calc(var(--x) * 1px), calc(var(--y) * 1px));
+      transition-delay: 0.1s;
+    }
+
+    .whatsapp-icons.active .whatsapp-icon:nth-child(3) {
+      opacity: 1;
+      transform: translate(calc(var(--x) * 1px), calc(var(--y) * 1px));
+      transition-delay: 0.2s;
+    }
+
+    .whatsapp-icons.active .whatsapp-icon:nth-child(4) {
+      opacity: 1;
+      transform: translate(calc(var(--x) * 1px), calc(var(--y) * 1px));
+      transition-delay: 0.3s;
+    }
+  </style>
 </head>
 
 <body>
@@ -98,7 +241,7 @@
     <!--header start-->
 
     <header id="site-header" class="header">
-     
+
       <div id="header-wrap">
         <div class="container-fluid px-lg-8">
           <div class="row">
@@ -138,8 +281,8 @@
                     <li class="nav-item"> <a class="nav-link" href="under-construction.html">Contact</a>
 
                     </li>
-                    
-                    
+
+
 
 
 
@@ -150,7 +293,7 @@
                         class="las la-search"></i></a>
                   </div>
                   <div class="ms-sm-3 me-md-5">
-                   
+
                   </div> <a class="btn btn-theme btn-sm d-none d-md-inline-block" href="#"><span>Appointment</span></a>
                 </div>
               </nav>
@@ -503,7 +646,7 @@
 
       <!--price table end-->
 
-    
+
 
 
 
@@ -691,85 +834,95 @@
       <!--client end-->
 
 
-     <!--multi-sec start-->
+      <!--multi-sec start-->
 
-<section class="p-0 reviews">
-  <div class="container-fluid ps-0">
-    <div class="row justify-content-center text-center">
-      <div class="col-lg-6 col-12">
-        <div class="section-title">
-          <h2 class="title mb-0">Customer Reviews</h2>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-7 pe-0">
-        <div class="dark-bg p-lg-7 p-4 pe-lg-10" data-bg-img="images/pattern/02.png">
-          <div class="owl-carousel no-pb" data-dots="false" data-items="1" data-autoplay="true" data-autoplay-timeout="8000">
-            <div class="item">
-              <div class="testimonial text-center">
-                <div class="testimonial-img mb-2">
-                  <img class="img-fluid rounded-circle shadow-sm d-inline-block" src="images/testimonial/01.jpg" alt="">
-                </div>
-                <div class="testimonial-content">
-                  <div class="testimonial-caption mb-3">
-                    <h5 class="text-white">Andrew Rooney</h5>
-                    <label class="fst-italic d-block text-light">-Supervisor</label>
+      <section class="p-0 reviews">
+        <div class="container-fluid ps-0">
+          <div class="row justify-content-center text-center">
+            <div class="col-lg-6 col-12">
+              <div class="section-title">
+                <h2 class="title mb-0">Customer Reviews</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-7 pe-0">
+              <div class="dark-bg p-lg-7 p-4 pe-lg-10" data-bg-img="images/pattern/02.png">
+                <div class="owl-carousel no-pb" data-dots="false" data-items="1" data-autoplay="true"
+                  data-autoplay-timeout="8000">
+                  <div class="item">
+                    <div class="testimonial text-center">
+                      <div class="testimonial-img mb-2">
+                        <img class="img-fluid rounded-circle shadow-sm d-inline-block" src="images/testimonial/01.jpg"
+                          alt="">
+                      </div>
+                      <div class="testimonial-content">
+                        <div class="testimonial-caption mb-3">
+                          <h5 class="text-white">Andrew Rooney</h5>
+                          <label class="fst-italic d-block text-light">-Supervisor</label>
+                        </div>
+                        <p class="fst-italic text-light">Labortech great place to work because of the opportunities for
+                          moving between centres and trying something new within your area of expertise. The laboratory
+                          is also an open and flexible workplace & great place to work with.</p>
+                      </div>
+                    </div>
                   </div>
-                  <p class="fst-italic text-light">Labortech great place to work because of the opportunities for moving between centres and trying something new within your area of expertise. The laboratory is also an open and flexible workplace & great place to work with.</p>
+                  <div class="item">
+                    <div class="testimonial text-center">
+                      <div class="testimonial-img mb-2">
+                        <img class="img-fluid rounded-circle shadow-sm d-inline-block" src="images/testimonial/01.jpg"
+                          alt="">
+                      </div>
+                      <div class="testimonial-content">
+                        <div class="testimonial-caption mb-3">
+                          <h5 class="text-white">Andrew Rooney</h5>
+                          <label class="fst-italic d-block text-light">-Supervisor</label>
+                        </div>
+                        <p class="fst-italic text-light">Labortech great place to work because of the opportunities for
+                          moving between centres and trying something new within your area of expertise. The laboratory
+                          is also an open and flexible workplace & great place to work with.</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="item">
-              <div class="testimonial text-center">
-                <div class="testimonial-img mb-2">
-                  <img class="img-fluid rounded-circle shadow-sm d-inline-block" src="images/testimonial/01.jpg" alt="">
-                </div>
-                <div class="testimonial-content">
-                  <div class="testimonial-caption mb-3">
-                    <h5 class="text-white">Andrew Rooney</h5>
-                    <label class="fst-italic d-block text-light">-Supervisor</label>
+            <div class="col-md-5 col-12 ps-md-0 ms-md-n3 pt-6">
+              <div class="white-bg p-4 p-lg-5 z-index-1">
+                <form id="queto-form" method="post" action="php/contact.php">
+                  <div id="formmessage"></div>
+                  <div class="form-group">
+                    <input id="form_name" type="text" name="name" class="form-control" placeholder="Name"
+                      required="required">
                   </div>
-                  <p class="fst-italic text-light">Labortech great place to work because of the opportunities for moving between centres and trying something new within your area of expertise. The laboratory is also an open and flexible workplace & great place to work with.</p>
-                </div>
+                  <div class="form-group">
+                    <input id="form_email" type="email" name="email" class="form-control" placeholder="Email"
+                      required="required">
+                  </div>
+                  <div class="form-group">
+                    <select name="select" class="form-select form-control">
+                      <option>- Choose Service</option>
+                      <option>Pathology</option>
+                      <option>Diabetes</option>
+                      <option>Chemical</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <textarea id="form_message" name="message" class="form-control" placeholder="Message" rows="3"
+                      required="required"></textarea>
+                  </div>
+                  <div class="mt-4">
+                    <button class="btn btn-theme"><span>Send Messages</span>
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-5 col-12 ps-md-0 ms-md-n3 pt-6">
-        <div class="white-bg p-4 p-lg-5 z-index-1">
-          <form id="queto-form" method="post" action="php/contact.php">
-            <div id="formmessage"></div>
-            <div class="form-group">
-              <input id="form_name" type="text" name="name" class="form-control" placeholder="Name" required="required">
-            </div>
-            <div class="form-group">
-              <input id="form_email" type="email" name="email" class="form-control" placeholder="Email" required="required">
-            </div>
-            <div class="form-group">
-              <select name="select" class="form-select form-control">
-                <option>- Choose Service</option>
-                <option>Pathology</option>
-                <option>Diabetes</option>
-                <option>Chemical</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <textarea id="form_message" name="message" class="form-control" placeholder="Message" rows="3" required="required"></textarea>
-            </div>
-            <div class="mt-4">
-              <button class="btn btn-theme"><span>Send Messages</span>
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-<!--multi-sec end-->
+      <!--multi-sec end-->
 
       <!--call us start-->
 
@@ -793,6 +946,7 @@
       </section>
 
       <!--call us end-->
+
 
 
       <!--team start-->
@@ -950,7 +1104,7 @@
 
       <!--team end-->
 
-     
+
 
       <!--blog start-->
 
@@ -1134,8 +1288,7 @@
                       <li> <i class="las la-map-marker"></i>
                         <p class="mb-0">423B, Road Wordwide Country, USA</p>
                       </li>
-                      <li><i class="las la-envelope"></i> <a
-                          href="mailto:themeht23@gmail.com">themeht23@gmail.com</a>
+                      <li><i class="las la-envelope"></i> <a href="mailto:themeht23@gmail.com">themeht23@gmail.com</a>
                       </li>
                       <li><i class="las la-phone"></i> <a href="tel:+912345678900">+91-234-567-8900</a>
                       </li>
@@ -1148,9 +1301,11 @@
               </div>
               <div class="row">
                 <div class="col">
-                  <div class="copyright p-4 white-bg mt-5 ms-md-n6">Copyright Â© 2021 All rights reserved | Focus Diagnostics
+                  <div class="copyright p-4 white-bg mt-5 ms-md-n6">Copyright Â© 2021 All rights reserved | Focus
+                    Diagnostics
                     Made by <i class="lar la-heart text-theme heartBeat2"></i> <u><a
-                        href="https://nhoste.github.io/official-website" target="_black">nhoste software solutions</a></u>
+                        href="https://nhoste.github.io/official-website" target="_black">nhoste software
+                        solutions</a></u>
                   </div>
                 </div>
               </div>
@@ -1168,7 +1323,7 @@
   <!-- page wrapper end -->
 
 
- 
+
 
 
   <!--back-to-top start-->
@@ -1176,6 +1331,77 @@
   <div class="scroll-top"><a class="smoothscroll" href="#top"><i class="las la-location-arrow"></i></a></div>
 
   <!--back-to-top end-->
+
+
+  <div class="whatsapp-container" id="whatsappContainer">
+    <div class="main-whatsapp-icon" id="mainWhatsAppIcon">
+      <i class="fab fa-whatsapp"></i>
+    </div>
+    <div class="whatsapp-icons" id="whatsappIcons">
+      <div class="whatsapp-icon">
+        <a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </div>
+      <div class="whatsapp-icon">
+        <a href="https://youtube.com/yourchannel" target="_blank" aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+      <div class="whatsapp-icon">
+        <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
+      <div class="whatsapp-icon">
+        <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const whatsappContainer = document.getElementById("whatsappContainer");
+    const whatsappIcons = document.getElementById("whatsappIcons");
+
+    // Track manual toggle state
+    let isManuallyToggled = false;
+
+    // Handle hover for the main WhatsApp icon (show icons on hover)
+    whatsappContainer.addEventListener("mouseenter", () => {
+      if (!isManuallyToggled) {
+        whatsappIcons.classList.add("active");  // Show icons on hover if not toggled manually
+      }
+    });
+
+    whatsappContainer.addEventListener("mouseleave", () => {
+      if (!isManuallyToggled) {
+        whatsappIcons.classList.remove("active");  // Hide icons on hover out if not toggled manually
+      }
+    });
+
+    // Handle click for toggling the icons' visibility (manual toggle)
+    whatsappContainer.addEventListener("click", (e) => {
+      e.stopPropagation(); // Prevent mouseleave from being triggered immediately after click
+
+      isManuallyToggled = !isManuallyToggled; // Toggle the manual state
+      if (isManuallyToggled) {
+        whatsappIcons.classList.add("active"); // Show icons if toggled
+      } else {
+        whatsappIcons.classList.remove("active"); // Hide icons if toggled off
+      }
+    });
+
+    // Reset manual toggle if clicking outside the WhatsApp container
+    document.addEventListener("click", (e) => {
+      if (!whatsappContainer.contains(e.target)) {
+        isManuallyToggled = false;
+        whatsappIcons.classList.remove("active");  // Hide icons if clicked outside
+      }
+    });
+
+  </script>
 
 
   <!-- inject js start -->
